@@ -42,6 +42,24 @@ public class LoginPresenterTest {
     @Test
     public void checkUserAndPasswordIsCorrect(){
         LoginPresenter loginPresenter = new LoginPresenter(loginView);
-        Assert.assertTrue(loginPresenter.checkUserPassword("user","password"));
+        loginPresenter.checkUserPassword("user","password");
+        verify(loginView).showLoginSuccessMessage();
+    }
+
+    @Test
+    public void checkUserAndPasswordIsNotCorrect(){
+        LoginPresenter loginPresenter = new LoginPresenter(loginView);
+        loginPresenter.checkUserPassword("user1","password1");
+        verify(loginView).showErrorMessageForUserPassword();
+    }
+
+    @Test
+    public void checkIfLoginAttemptIsExceededWithMessage(){
+        LoginPresenter loginPresenter = new LoginPresenter(loginView);
+        loginPresenter.checkUserPassword("user1","password1");
+        loginPresenter.checkUserPassword("user1","password1");
+        loginPresenter.checkUserPassword("user1","password1");
+        loginPresenter.checkUserPassword("user1","password1");
+        verify(loginView).showErrorMessageForMaxLoginAttempt();
     }
 }
