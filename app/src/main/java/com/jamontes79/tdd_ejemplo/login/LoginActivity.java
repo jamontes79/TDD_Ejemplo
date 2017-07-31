@@ -43,16 +43,16 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     }
     @Override
     public void showErrorMessageForUserPassword() {
-        Snackbar.make(txtPassword, "Usuario o contraseña incorrectos.", Snackbar.LENGTH_LONG).show();
+        Snackbar.make(txtPassword, R.string.error_user_password, Snackbar.LENGTH_LONG).show();
     }
 
     @Override
     public void showErrorMessageForMaxLoginAttempt() {
-        Snackbar.make(btnLogin, "Ha superado el número máximo de intentos.", Snackbar.LENGTH_LONG).show();
+        Snackbar.make(btnLogin, R.string.error_max_login_attempt, Snackbar.LENGTH_LONG).show();
     }
 
     @Override
     public void showLoginSuccessMessage() {
-        Snackbar.make(btnLogin, "Login correcto.", Snackbar.LENGTH_LONG).show();
+        Snackbar.make(btnLogin, R.string.login_ok, Snackbar.LENGTH_LONG).show();
     }
 }
