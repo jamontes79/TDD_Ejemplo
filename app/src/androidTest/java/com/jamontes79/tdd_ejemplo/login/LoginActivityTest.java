@@ -50,8 +50,8 @@ public class LoginActivityTest {
     public void checkLoginSuccess()
     {
         activityTestRule.launchActivity(new Intent());
-        onView(withId(R.id.txt_user_name)).perform(typeText("nj"),closeSoftKeyboard());
-        onView(withId(R.id.txt_password)).perform(typeText("tdd"),closeSoftKeyboard());
+        onView(withId(R.id.txt_user_name)).perform(typeText("user"),closeSoftKeyboard());
+        onView(withId(R.id.txt_password)).perform(typeText("password"),closeSoftKeyboard());
         onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
         onView(withText("Login successful.")).check(matches(isDisplayed()));
 
