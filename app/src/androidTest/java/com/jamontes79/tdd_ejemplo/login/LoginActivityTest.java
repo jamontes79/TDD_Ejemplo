@@ -53,7 +53,7 @@ public class LoginActivityTest {
         onView(withId(R.id.txt_user_name)).perform(typeText("user"),closeSoftKeyboard());
         onView(withId(R.id.txt_password)).perform(typeText("password"),closeSoftKeyboard());
         onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
-        onView(withText("Login successful.")).check(matches(isDisplayed()));
+        onView(withText(R.string.login_ok)).check(matches(isDisplayed()));
 
     }
 }
